@@ -9,9 +9,9 @@ FUNCTION Main()
     QOut((cDivisa)) // Talvez nem seja a maneira mais "eficiente" de fazer
     QOut("  FICHA DE APRESENTA€ÇO")
     QOut(cDivisa)
-    QOut("Nome: " + cNome)
-    QOut("Cidade: " + cCidade)
-    QOut("Curso: " + cCurso)
+    QOut("Nome    : " + cNome)
+    QOut("Cidade  : " + cCidade)
+    QOut("Curso   : " + cCurso)
     QOut(cDivisa)
     
 RETURN NIL
