@@ -1,12 +1,13 @@
 FUNCTION Main()
 
     LOCAL cHora := Time()
-    LOCAL cData := DToC(Date())
+    LOCAL dData := Date()
     LOCAL cNome := "Ikezaki"
     LOCAL cCidade := "Guarulhos"
     LOCAL cCurso := "Harbour/ADVPL"
     LOCAL cDivisa := Replicate("=", len("  FICHA DE APRESENTA€ÇO") + 2)
     hb_cdpSelect("PT850") 
+    SET DATE FORMAT TO "DD/MM/YYYY"
 
     QOut((cDivisa))
     QOut("  FICHA DE APRESENTA€ÇO")
@@ -14,7 +15,7 @@ FUNCTION Main()
     QOut("Nome    : " + cNome)
     QOut("Cidade  : " + cCidade)
     QOut("Curso   : " + cCurso)
-    QOut("Data    : " + cData)
+    QOut("Data    : " + DToC(dData))
     QOut("Hora    : " + cHora)
     QOut(cDivisa)
 
