@@ -1,22 +1,24 @@
 FUNCTION Main()
 
-    LOCAL cHora := Time()
-    LOCAL dData := Date()
+    //LOCAL cHora := Time()
+    //LOCAL dData := Date()
     LOCAL cNome := "Ikezaki"
     LOCAL cCidade := "Guarulhos"
     LOCAL cCurso := "Harbour/ADVPL"
-    LOCAL cDivisa := Replicate("=", len("  FICHA DE APRESENTA€ÇO") + 2)
+    //LOCAL cDivisa := Replicate("=", len("  FICHA DE APRESENTA€ÇO") + 2)
     hb_cdpSelect("PT850") 
     SET DATE FORMAT TO "DD/MM/YYYY"
 
-    QOut((cDivisa))
+    ?(Replicate("=", len("  FICHA DE APRESENTA€ÇO  ")))
     QOut("  FICHA DE APRESENTA€ÇO")
-    QOut(cDivisa)
+    ?(Replicate("=", len("  FICHA DE APRESENTA€ÇO") + 2))
     QOut("Nome    : " + cNome)
     QOut("Cidade  : " + cCidade)
     QOut("Curso   : " + cCurso)
-    QOut("Data    : " + DToC(dData))
-    QOut("Hora    : " + cHora)
-    QOut(cDivisa)
+    QOut("Data    : " + DToC(Date()))
+    QOut("Hora    : " + Time())
+    ?(Replicate("=", len("  FICHA DE APRESENTA€ÇO") + 2))
 
 RETURN NIL
+
+// Podia nao ter a variavel divisa e tbm nao ter as variaveis de data e hora

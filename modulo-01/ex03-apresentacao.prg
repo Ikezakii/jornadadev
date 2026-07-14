@@ -6,7 +6,7 @@ FUNCTION Main()
     LOCAL cDivisa := Replicate("=", 25) // Dava pra pegar o tamanho do FICHA DE APRESENTACAO
     hb_cdpSelect("PT850") // Deus Aben‡oe a comunidade do Discord
 
-    QOut((cDivisa)) // Talvez nem seja a maneira mais "eficiente" de fazer
+    QOut(cDivisa) // Talvez nem seja a maneira mais "eficiente" de fazer
     QOut("  FICHA DE APRESENTA€ÇO")
     QOut(cDivisa)
     QOut("Nome    : " + cNome)
