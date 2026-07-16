@@ -4,10 +4,10 @@ FUNCTION Main()
     LOCAL cCidade := "Guarulhos"
     LOCAL cCurso := "Harbour/ADVPL"
     LOCAL cDivisa := Replicate("=", 25) // Dava pra pegar o tamanho do FICHA DE APRESENTACAO
-    hb_cdpSelect("PT850") // Deus Aben‡oe a comunidade do Discord
+    hb_cdpSelect("PT850") // Deus Abenï¿½oe a comunidade do Discord
 
     QOut(cDivisa) // Talvez nem seja a maneira mais "eficiente" de fazer
-    QOut("  FICHA DE APRESENTA€ÇO")
+    QOut("  FICHA DE APRESENTAï¿½ï¿½O")
     QOut(cDivisa)
     QOut("Nome    : " + cNome)
     QOut("Cidade  : " + cCidade)

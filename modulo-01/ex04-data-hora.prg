@@ -5,19 +5,19 @@ FUNCTION Main()
     LOCAL cNome := "Ikezaki"
     LOCAL cCidade := "Guarulhos"
     LOCAL cCurso := "Harbour/ADVPL"
-    //LOCAL cDivisa := Replicate("=", len("  FICHA DE APRESENTA€ÇO") + 2)
+    //LOCAL cDivisa := Replicate("=", len("  FICHA DE APRESENTAï¿½ï¿½O") + 2)
     hb_cdpSelect("PT850") 
     SET DATE FORMAT TO "DD/MM/YYYY"
 
-    ?(Replicate("=", len("  FICHA DE APRESENTA€ÇO  ")))
-    QOut("  FICHA DE APRESENTA€ÇO")
-    ?(Replicate("=", len("  FICHA DE APRESENTA€ÇO") + 2)) // Utilizando "QOut" e "?" para experimenta‡Æo e compara‡Æo de resultados
+    ?(Replicate("=", len("  FICHA DE APRESENTAï¿½ï¿½O  ")))
+    QOut("  FICHA DE APRESENTAï¿½ï¿½O")
+    ?(Replicate("=", len("  FICHA DE APRESENTAï¿½ï¿½O") + 2)) // Utilizando "QOut" e "?" para experimentaï¿½ï¿½o e comparaï¿½ï¿½o de resultados
     QOut("Nome    : " + cNome)
     QOut("Cidade  : " + cCidade)
     QOut("Curso   : " + cCurso)
     QOut("Data    : " + DToC(Date()))
     QOut("Hora    : " + Time())
-    ?(Replicate("=", len("  FICHA DE APRESENTA€ÇO") + 2))
+    ?(Replicate("=", len("  FICHA DE APRESENTAï¿½ï¿½O") + 2))
 
 RETURN NIL
 

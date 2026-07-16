@@ -5,4 +5,4 @@ FUNCTION Main()
 
     QOut(cNome + " - " + cCidade + " - Pronto para aprender ADVPL!")
     
-RETURN NIL
+RETURN NIL 
