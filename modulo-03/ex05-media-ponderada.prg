@@ -4,7 +4,7 @@ FUNCTION Main()
     LOCAL nNota2
     LOCAL nNota3
     LOCAL nNota4
-    LOCAL nMedia := 0
+    LOCAL nMedia
 
     INPUT "Digite a primeira nota do aluno: " TO nNota1
     INPUT "Digite a segunda nota do aluno: " TO nNota2
