@@ -14,7 +14,7 @@ Escreva em pseudocódigo um algoritmo para cada item:
 
 ```text
 ALGORITMO
-
+ 
 REAL base, altura, area
 
 base <- x

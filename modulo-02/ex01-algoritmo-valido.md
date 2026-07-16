@@ -15,7 +15,7 @@ Para cada situação abaixo, indique se é um algoritmo válido. Se não for, ex
 **Algoritmo válido.**
 
 ---
-
+ 
 ### c. "Fique repetindo até acabar."
 
 **Algoritmo inválido.**

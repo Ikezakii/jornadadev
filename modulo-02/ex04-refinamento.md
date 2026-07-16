@@ -18,7 +18,7 @@ Aplique a técnica do refinamento sucessivo (visão geral → detalhamento) para
 ---
 
 ### Nível 2
-
+ 
 1. Ler os valores de cada item passado no caixa.
 2. Somar os valores (Valor total = N1 + N2 + N3.... + Nx).
 3. Se o cliente tem cartão fidelidade → Valor total * 0,95. Senão "Sem desconto".
