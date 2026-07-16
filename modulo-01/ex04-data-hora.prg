@@ -11,7 +11,7 @@ FUNCTION Main()
 
     ?(Replicate("=", len("  FICHA DE APRESENTA€ÇO  ")))
     QOut("  FICHA DE APRESENTA€ÇO")
-    ?(Replicate("=", len("  FICHA DE APRESENTA€ÇO") + 2))
+    ?(Replicate("=", len("  FICHA DE APRESENTA€ÇO") + 2)) // Utilizando "QOut" e "?" para experimenta‡Æo e compara‡Æo de resultados
     QOut("Nome    : " + cNome)
     QOut("Cidade  : " + cCidade)
     QOut("Curso   : " + cCurso)
@@ -21,4 +21,4 @@ FUNCTION Main()
 
 RETURN NIL
 
-// Podia nao ter a variavel divisa e tbm nao ter as variaveis de data e hora
+// Podia nao ter a variavel divisa e tbm nao ter as variaveis de data e hora, vou fazer sem dessa vez
