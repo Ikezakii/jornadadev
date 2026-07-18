@@ -7,7 +7,7 @@ FUNCTION validar_num_int(cNum, lAceita_null , nLimite , lAceita_negativo)
     ENDIF
 
     IF nLimite == NIL
-        lAceita_negativo := 1
+        nLimite := 1
     ENDIF
 
     IF lAceita_negativo == NIL
