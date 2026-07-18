@@ -5,7 +5,7 @@ FUNCTION Main()
     area_circulo()
     imc()
     hipotenusa()
-
+    // Poderia passar os valores como parametros para as funções tbm, alterando uma coisa ou outra
 RETURN NIL
 
 FUNCTION area_circulo()

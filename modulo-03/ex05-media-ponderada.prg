@@ -12,7 +12,9 @@ FUNCTION Main()
     INPUT "Digite a quarta nota do aluno: " TO nNota4
 
     nMedia := ((nNota1*1) + (nNota2*2) + (nNota3*3) + (nNota4*4)) / (1+2+3+4)
-
+ 
     QOut("A média do aluno é: " + alltrim(str(nMedia,10,2)))
 
 RETURN NIL
+
+// Da pra usar uma lista e um contador para os pesos?
