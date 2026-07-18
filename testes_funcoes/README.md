@@ -287,5 +287,5 @@ Não é necessário copiar as funções para dentro do arquivo principal.
 # Futuras melhorias
 
 - Permitir retorno ao campo anterior durante validação de datas.
-- Parametro para aceitar anos futuros (Ano Autal + X)
+- Parametro para aceitar anos futuros
 - E outras que não enxerguei sozinho
