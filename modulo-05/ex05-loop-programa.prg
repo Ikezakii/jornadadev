@@ -1,11 +1,12 @@
 FUNCTION Main()
 
     LOCAL cNome
+    LOCAL cNota1
+    LOCAL cNota2
     LOCAL nNota1
     LOCAL nNota2
     LOCAL cDisci
     LOCAL nMedia
-    LOCAL index
     LOCAL cContinuar := "S"
 
     DO WHILE cContinuar == "S"
@@ -39,21 +40,24 @@ FUNCTION Main()
 
         DO WHILE .T.
 
-            INPUT "Digite a primeira nota do aluno: " TO nNota1//Se der usar o novo validador kkkk
-            IF nNota1 < 0 .OR. nNota1 > 10
-                QOut("Digite uma nota válida")
-            ELSE
+            ACCEPT "Digite a primeira nota do aluno: " TO cNota1//Se der usar o novo validador kkkk
+            IF validar_num(cNota1, .F., .F., .T., 10, 0)
+                nNota1 := Val(cNota1)
                 EXIT
+            ELSE
+                QOut("Digite uma nota válida de 0 a 10")
             ENDIF
 
         END DO
 
         DO WHILE .T.
-            INPUT "Digite a segunda nota do aluno: " TO nNota2//Se der usar o novo validador kkkk
-            IF nNota2 < 0 .OR. nNota2 > 10
-                QOut("Digite uma nota válida")
-            ELSE
+
+            ACCEPT "Digite a primeira nota do aluno: " TO cNota2//Se der usar o novo validador kkkk
+            IF validar_num(cNota2, .F., .F., .T., 10, 0)
+                nNota2 := Val(cNota2)
                 EXIT
+            ELSE
+                QOut("Digite uma nota válida de 0 a 10")
             ENDIF
 
         END DO
@@ -80,14 +84,6 @@ FUNCTION Main()
 
 RETURN NIL
 
-
-
-/*Leia nome, disciplina e 2 notas de um aluno, validando cada campo com um loop de
-consistência (só avança quando o valor for válido): - Nome: não pode ser vazio - Disciplina:
-exatamente 3 letras maiúsculas (ex.: MAT , POR ) - Notas: cada uma entre 0 e 10
-Ao final, exiba os dados e a média das duas notas.
-Dica: Len(Trim(cNome)) > 0 verifica não-vazio; Len(cDisc) == 3 .AND. cDisc ==
-Upper(cDisc) ajuda na disciplina.*/
 
 
 FUNCTION validar_texto(cTexto,nLimite,lAceita_null,lAceita_num_especial)
@@ -127,6 +123,81 @@ FUNCTION validar_texto(cTexto,nLimite,lAceita_null,lAceita_num_especial)
                 RETURN .F.
             ENDIF
         END FOR
+    ENDIF
+
+RETURN .T.
+
+//validar_num()
+FUNCTION validar_num(cNum, lAceita_null , lAceita_negativo, lAceita_dec,nLimite_val, nMin_val)
+    LOCAL index
+    LOCAL lPonto := .F.
+    LOCAL nPos := 0
+    LOCAL lTem_num := .F.
+    LOCAL nValor
+
+    cNum := AllTrim(cNum)
+
+    IF lAceita_null == NIL
+        lAceita_null := .F.
+    ENDIF
+
+    IF lAceita_dec == NIL
+        lAceita_dec := .F.
+    ENDIF
+
+    IF lAceita_negativo == NIL
+        lAceita_negativo := .F.
+    ENDIF
+
+    IF lAceita_null == .F.
+        IF EMPTY(cNum)
+            RETURN .F.
+        ENDIF
+    ENDIF
+
+
+    FOR EACH index IN cNum
+        nPos++
+        IF index == "-"
+            IF lAceita_negativo == .T. .AND. nPos == 1
+                LOOP
+            ELSE
+                RETURN .F.
+            ENDIF
+        ENDIF
+
+        IF index == "."
+            IF lAceita_dec .AND. !lPonto
+                lPonto := .T.
+                LOOP
+            ELSE
+                RETURN .F.
+            ENDIF
+        ENDIF
+
+        IF AT(index,"0123456789") > 0
+            lTem_num := .T.
+            LOOP
+        ENDIF
+
+    END FOR
+
+    IF lTem_num == .F.
+        RETURN .F.
+    ENDIF
+
+    nValor := Val(cNum)
+
+    IF nMin_val != NIL
+        IF nValor < nMin_val
+            RETURN .F.
+        ENDIF
+    ENDIF
+
+    IF nLimite_val != NIL
+        IF nValor > nLimite_val
+            RETURN .F.
+        ENDIF
     ENDIF
 
 RETURN .T.

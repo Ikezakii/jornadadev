@@ -1,13 +1,12 @@
 FUNCTION Main()
 
     LOCAL cNome
+    LOCAL cNota1
+    LOCAL cNota2
     LOCAL nNota1
     LOCAL nNota2
     LOCAL cDisci
     LOCAL nMedia
-    LOCAL aInfos := {cNome, cDisci, nNota1, nNota2, nMedia}
-    LOCAL index
-
 
     DO WHILE .T.
 
@@ -24,7 +23,7 @@ FUNCTION Main()
         ACCEPT "Qual disciplina avaliada? " TO cDisci //Usar validar_texto?
 
 
-        IF len(cDisci) != 3 .OR. cDisci != UPPER(cDisci)
+        IF len(alltrim(cDisci)) != 3 .OR. cDisci != UPPER(alltrim(cDisci))
             QOut("Digite a matéria no formato de 3 digitos! - EX: MAT")
             LOOP
         ENDIF
@@ -39,21 +38,24 @@ FUNCTION Main()
 
     DO WHILE .T.
 
-        INPUT "Digite a primeira nota do aluno: " TO nNota1//Se der usar o novo validador kkkk
-        IF nNota1 < 0 .OR. nNota1 > 10
-            QOut("Digite uma nota válida")
-        ELSE
+        ACCEPT "Digite a primeira nota do aluno: " TO cNota1//Se der usar o novo validador kkkk
+        IF validar_num(cNota1, .F., .F., .T., 10, 0)
+            nNota1 := Val(cNota1)
             EXIT
+        ELSE
+            QOut("Digite uma nota válida de 0 a 10")
         ENDIF
 
     END DO
 
     DO WHILE .T.
-        INPUT "Digite a segunda nota do aluno: " TO nNota2//Se der usar o novo validador kkkk
-        IF nNota2 < 0 .OR. nNota2 > 10
-            QOut("Digite uma nota válida")
-        ELSE
+
+        ACCEPT "Digite a primeira nota do aluno: " TO cNota2//Se der usar o novo validador kkkk
+        IF validar_num(cNota2, .F., .F., .T., 10, 0)
+            nNota2 := Val(cNota2)
             EXIT
+        ELSE
+            QOut("Digite uma nota válida de 0 a 10")
         ENDIF
 
     END DO
@@ -117,6 +119,81 @@ FUNCTION validar_texto(cTexto,nLimite,lAceita_null,lAceita_num_especial)
                 RETURN .F.
             ENDIF
         END FOR
+    ENDIF
+
+RETURN .T.
+
+
+FUNCTION validar_num(cNum, lAceita_null , lAceita_negativo, lAceita_dec,nLimite_val, nMin_val)
+    LOCAL index
+    LOCAL lPonto := .F.
+    LOCAL nPos := 0
+    LOCAL lTem_num := .F.
+    LOCAL nValor
+
+    cNum := AllTrim(cNum)
+
+    IF lAceita_null == NIL
+        lAceita_null := .F.
+    ENDIF
+
+    IF lAceita_dec == NIL
+        lAceita_dec := .F.
+    ENDIF
+
+    IF lAceita_negativo == NIL
+        lAceita_negativo := .F.
+    ENDIF
+
+    IF lAceita_null == .F.
+        IF EMPTY(cNum)
+            RETURN .F.
+        ENDIF
+    ENDIF
+
+
+    FOR EACH index IN cNum
+        nPos++
+        IF index == "-"
+            IF lAceita_negativo == .T. .AND. nPos == 1
+                LOOP
+            ELSE
+                RETURN .F.
+            ENDIF
+        ENDIF
+
+        IF index == "."
+            IF lAceita_dec .AND. !lPonto
+                lPonto := .T.
+                LOOP
+            ELSE
+                RETURN .F.
+            ENDIF
+        ENDIF
+
+        IF AT(index,"0123456789") > 0
+            lTem_num := .T.
+            LOOP
+        ENDIF
+
+    END FOR
+
+    IF lTem_num == .F.
+        RETURN .F.
+    ENDIF
+
+    nValor := Val(cNum)
+
+    IF nMin_val != NIL
+        IF nValor < nMin_val
+            RETURN .F.
+        ENDIF
+    ENDIF
+
+    IF nLimite_val != NIL
+        IF nValor > nLimite_val
+            RETURN .F.
+        ENDIF
     ENDIF
 
 RETURN .T.
