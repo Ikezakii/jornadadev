@@ -27,7 +27,7 @@ FUNCTION Main()
 
     ASORT(aArray)
     FOR EACH index in aArray
-        QQOut(index)
+        QQOut(alltrim(str(index,10,2)) + "  ")
         nTot += index
     END FOR
     nMedia := nTot / len(aArray)
