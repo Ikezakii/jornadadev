@@ -21,7 +21,7 @@ FUNCTION Main()
                 aTemp_array := cadastrar_prod(aProdutos)
                 AADD(aProdutos, aTemp_array)
                 HB_IdleSleep(2)
-
+  
             CASE cOperacao == 2
                 
                 listar_prod(aProdutos)

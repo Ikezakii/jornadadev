@@ -11,7 +11,7 @@ FUNCTION entrada_estoque(aArray)
         QOut("Sem produtos")
         RETURN NIL
     END IF
-
+  
     FOR EACH index in aArray
         AADD(aCod_prods, index[1])
     END FOR
@@ -190,9 +190,9 @@ FUNCTION relatorio(aArray) //{{codigo, nome, quantidade, preco_unitario}, {codig
     FOR EACH index IN aArray
         cQtd_preco := index[3] * index[4]
         cTotal += cQtd_preco
-        QOut(index[2] + " - R$" + alltrim(str(cTotal))) 
+        QOut(index[2] + " - R$" + alltrim(str(cQtd_preco))) 
     END FOR// produto e preço total em estoque
-
+    QOut("Valor de todo o estoque: R$" + alltrim(str(cTotal)))
 RETURN NIL
 
 FUNCTION cadastrar_prod(aArray) //{codigo, nome, quantidade, preco_unitario}
@@ -236,7 +236,7 @@ FUNCTION cadastrar_prod(aArray) //{codigo, nome, quantidade, preco_unitario}
 
         DO WHILE .T.
             ACCEPT "Digite o preço do produto: " TO cPreco
-            IF validar_num(cQtd,.F.,.F.,.T.) 
+            IF validar_num(cPreco,.F.,.F.,.T.) //.OR. Val(cPreco) > 0
                 AADD(aTemp_array, Val(cPreco))
                 EXIT
             ELSE
