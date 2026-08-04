@@ -32,6 +32,6 @@ POSICIONE("SA1",1,xFilial("SA1")+M->ZA1_CLIENT+M->ZA1_LOJA,"A1_NOME")
 
 ![evidência](./evidencias_ex02/indices.png)
 
-![evidência](./evidencias_ex02/sx2s.png)
+![evidência](./evidencias_ex02/sx2.png)
 
 ![evidência](./evidencias_ex02/sx3.png)
