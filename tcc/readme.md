@@ -407,3 +407,86 @@ A biblioteca reúne funções reutilizáveis, evitando repetição de código e 
 | `ZZ2` | `ZZ2_CONFOR` | Deve existir na `ZZ1`. |
 | `ZZ2` | `ZZ2_CODPRO` | Deve existir na `SB1`. |
 | `ZZ2` | `ZZ2_DATA` | Não pode ser uma data futura. |
+# Guia de Instalação
+
+## 1. Arquivos necessários
+
+O projeto possui os seguintes arquivos:
+
+
+| Arquivo | Finalidade |
+|---|---|
+| `sa1990.dbf` | Dados da `SA1` |
+| `sa2990.dbf` / `.csv` | Dados da `SA2` |
+| `six990.dbf` / `.csv` | Índices |
+| `sx2990.dbf` / `.csv` | Dicionário de tabelas |
+| `sx3990.dbf` / `.csv` | Dicionário de campos |
+| `sx7990.dbf` / `.csv` | Gatilhos |
+| `sxb990.dbf` / `.csv` | Consultas |
+| `zz1990.dbf` / `.csv` | Tabela `ZZ1` |
+| `zz2990.dbf` / `.csv` | Tabela `ZZ2` |
+| `sigacom.xnu` | Menu do `SIGACOM` |
+| `*.PRW` / `*.PRG` | Rotinas e bibliotecas do sistema |
+
+
+----------
+
+## 2. Instalação
+
+### 1. Arquivos DBF
+
+Copiar os arquivos `.DBF` para a pasta de dados do ambiente Protheus.
+
+Os principais arquivos utilizados pelo projeto são:
+
+```text
+zz1990.dbf
+zz2990.dbf
+sa1990.dbf
+sa2990.dbf
+
+```
+
+### 2. Dicionário
+
+Carregar/configurar no Protheus os arquivos:
+
+```text
+sx2990.dbf
+sx3990.dbf
+sx7990.dbf
+six990.dbf
+sxb990.dbf
+
+```
+
+Eles correspondem ao dicionário, campos, gatilhos, índices e consultas utilizados pelo sistema.
+
+### 3. Rotinas
+
+Copiar e compilar as rotinas `.PRW`  do projeto no ambiente Protheus.
+
+A biblioteca `STTZZLIB` também deve ser compilada, pois contém funções utilizadas pelas demais rotinas.
+
+Principais rotinas:
+
+
+| Rotina | Função |
+|---|---|
+| `STTZZ1` | Cadastro de certificados |
+| `STTZZ2` | Cadastro de ocorrências |
+| `STTZZ2FLT` | Consulta filtrada de ocorrências |
+| `STTZZLIB` | Biblioteca de funções auxiliares |
+
+### 4. Menu
+
+Importar o arquivo:
+
+```text
+sigacom.xnu
+
+```
+
+no módulo `SIGACOM`.
+
+    
